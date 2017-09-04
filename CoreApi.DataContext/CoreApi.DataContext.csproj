@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreApi.Infrastructure\CoreApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\CoreApi.Models\CoreApi.Models.csproj" />
+  </ItemGroup>
+
+</Project>

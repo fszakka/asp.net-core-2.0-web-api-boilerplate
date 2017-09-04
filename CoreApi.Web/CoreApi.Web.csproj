@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.0.0-dev-00002" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.0.2-dev-00753" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.1-dev-00771" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreApi.DataContext\CoreApi.DataContext.csproj" />
+    <ProjectReference Include="..\CoreApi.Infrastructure\CoreApi.Infrastructure.csproj" />
+    <ProjectReference Include="..\CoreApi.Models\CoreApi.Models.csproj" />
+    <ProjectReference Include="..\CoreApi.Repositories\CoreApi.Repositories.csproj" />
+    <ProjectReference Include="..\CoreApi.Services\CoreApi.Services.csproj" />
+    <ProjectReference Include="..\CoreApi.ViewModels\CoreApi.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
