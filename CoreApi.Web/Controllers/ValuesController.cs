@@ -10,7 +10,6 @@ using Microsoft.Extensions.Logging;
 namespace CoreApi.Web.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize]
     public class ValuesController : BaseController
     {
         public ValuesController(

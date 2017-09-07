@@ -1,0 +1,11 @@
+2017-09-07 16:08:44.347 +08:00 [Information] Entity Framework Core "2.0.0-rtm-26452" initialized '"CoreContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2017-09-07 16:08:52.130 +08:00 [Information] Executed DbCommand ("451"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0"
+2017-09-07 16:08:53.088 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/api/values  
+2017-09-07 16:08:53.286 +08:00 [Fatal] Hi, Im Dave!!!!!!!!!!!!!!!!! "Dave"
+2017-09-07 16:08:53.300 +08:00 [Information] Executing action method "CoreApi.Web.Controllers.ValuesController.Get (CoreApi.Web)" with arguments (null) - ModelState is Valid
+2017-09-07 16:08:59.672 +08:00 [Information] Executing JsonResult, writing value "System.Linq.Enumerable+SelectEnumerableIterator`2[System.Security.Claims.Claim,<>f__AnonymousType0`2[System.String,System.String]]".
+2017-09-07 16:08:59.686 +08:00 [Information] Executed action "CoreApi.Web.Controllers.ValuesController.Get (CoreApi.Web)" in 6401.1683ms
+2017-09-07 16:08:59.695 +08:00 [Information] Request finished in 6609.9385ms 200 application/json; charset=utf-8
+2017-09-07 16:08:59.886 +08:00 [Information] Request starting HTTP/1.1 GET http://localhost:5001/favicon.ico  
+2017-09-07 16:08:59.891 +08:00 [Information] Request finished in 4.8979ms 404 

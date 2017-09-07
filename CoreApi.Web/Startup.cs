@@ -49,17 +49,17 @@ namespace CoreApi.Web
             {
                 c.SwaggerDoc("v1", new Info { Title = "My APIs", Version = "v1" });
             });
-            services.AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
-                .AddJwtBearer(o =>
-                {
-                    o.Audience = "api1";
-                    o.Authority = "http://localhost:5000";
-                    o.RequireHttpsMetadata = false;
-                });
+            //services.AddAuthentication(options =>
+            //    {
+            //        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    })
+            //    .AddJwtBearer(o =>
+            //    {
+            //        o.Audience = "api1";
+            //        o.Authority = "http://localhost:5000";
+            //        o.RequireHttpsMetadata = false;
+            //    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,7 +85,7 @@ namespace CoreApi.Web
             });
 
             // Just Before UseMvc
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseMvc();
 
