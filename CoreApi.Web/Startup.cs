@@ -9,6 +9,7 @@ using CoreApi.DataContext.Core;
 using CoreApi.DataContext.Infrastructure;
 using CoreApi.Models.Core;
 using CoreApi.Repositories.Core;
+using CoreApi.Services.Core;
 using CoreApi.Web.MyConfigurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -42,6 +43,7 @@ namespace CoreApi.Web
             services.AddAutoMapper();
 
             services.AddScoped<IUnitOfWork, CoreContext>();
+            services.AddScoped(typeof(ICoreService<>), typeof(CoreService<>));
             services.AddScoped<IUploadedFileRepository, UploadedFileRepository>();
 
             // Swagger

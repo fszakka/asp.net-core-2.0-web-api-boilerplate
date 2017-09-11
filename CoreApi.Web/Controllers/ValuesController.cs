@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CoreApi.DataContext.Infrastructure;
+using CoreApi.Services.Core;
 using CoreApi.Web.Controllers.Bases;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,12 +11,10 @@ using Microsoft.Extensions.Logging;
 namespace CoreApi.Web.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : BaseController
+    public class ValuesController : BaseController<ValuesController>
     {
-        public ValuesController(
-            IUnitOfWork unitOfWork,
-            ILogger<ValuesController> logger):
-            base(unitOfWork, logger)
+        public ValuesController(ICoreService<ValuesController> coreService):
+            base(coreService)
         {
             Logger.LogCritical("Hi, Im Dave!!!!!!!!!!!!!!!!! {User}", "Dave");
             //LogCritical("xxx {User}", "Nick");

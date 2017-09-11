@@ -1,21 +1,25 @@
 ﻿using System;
 using CoreApi.DataContext.Infrastructure;
+using CoreApi.Services.Core;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 
 namespace CoreApi.Web.Controllers.Bases
 {
-    public abstract class BaseController : Controller
+    public abstract class BaseController<T> : Controller
     {
         protected readonly IUnitOfWork UnitOfWork;
-        protected readonly ILogger Logger;
+        protected readonly ILogger<T> Logger;
+        protected readonly IFileProvider FileProvider;
+        protected readonly ICoreService<T> CoreService;
 
-        protected BaseController(
-            IUnitOfWork unitOfWork,
-            ILogger logger)
+        protected BaseController(ICoreService<T> coreService)
         {
-            UnitOfWork = unitOfWork;
-            Logger = logger;
+            CoreService = coreService;
+            UnitOfWork = coreService.UnitOfWork;
+            Logger = coreService.Logger;
+            FileProvider = coreService.FileProvider;
         }
 
         #region Current Information
@@ -24,6 +28,6 @@ namespace CoreApi.Web.Controllers.Bases
         protected string UserName => User.Identity.Name ?? "Anonymous";
 
         #endregion
-        
+
     }
 }
