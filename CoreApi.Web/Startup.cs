@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +17,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace CoreApi.Web
@@ -45,6 +48,12 @@ namespace CoreApi.Web
             services.AddScoped<IUnitOfWork, CoreContext>();
             services.AddScoped(typeof(ICoreService<>), typeof(CoreService<>));
             services.AddScoped<IUploadedFileRepository, UploadedFileRepository>();
+
+            //FileProvider
+            var physicalProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
+            var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
+            var compositeProvider = new CompositeFileProvider(physicalProvider, embeddedProvider);
+            services.AddSingleton<IFileProvider>(compositeProvider);
 
             // Swagger
             services.AddSwaggerGen(c =>
